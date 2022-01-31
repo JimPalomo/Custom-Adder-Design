@@ -1,0 +1,263 @@
+-- Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, the Altera Quartus Prime License Agreement,
+-- the Altera MegaCore Function License Agreement, or other 
+-- applicable license agreement, including, without limitation, 
+-- that your use is for the sole purpose of programming logic 
+-- devices manufactured by Altera and sold by Altera or its 
+-- authorized distributors.  Please refer to the applicable 
+-- agreement for further details.
+
+-- PROGRAM		"Quartus Prime"
+-- VERSION		"Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition"
+-- CREATED		"Tue Nov 10 14:16:10 2020"
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all; 
+
+LIBRARY work;
+
+ENTITY LSZD_level5 IS 
+	PORT
+	(
+		MS0 :  IN  STD_LOGIC;
+		MS1 :  IN  STD_LOGIC;
+		NZ_LS :  IN  STD_LOGIC;
+		NZ_MS :  IN  STD_LOGIC;
+		MS2 :  IN  STD_LOGIC;
+		MS3 :  IN  STD_LOGIC;
+		MS4 :  IN  STD_LOGIC;
+		MSH_LSsumbit_0 :  IN  STD_LOGIC;
+		MSH_LSsumbit_1 :  IN  STD_LOGIC;
+		MSH_LSsumbit_2 :  IN  STD_LOGIC;
+		MSH_LSsumbit_3 :  IN  STD_LOGIC;
+		NZ :  OUT  STD_LOGIC;
+		P5 :  OUT  STD_LOGIC;
+		P4 :  OUT  STD_LOGIC;
+		P3 :  OUT  STD_LOGIC;
+		P2 :  OUT  STD_LOGIC;
+		P1 :  OUT  STD_LOGIC;
+		P0 :  OUT  STD_LOGIC
+	);
+END LSZD_level5;
+
+ARCHITECTURE bdf_type OF LSZD_level5 IS 
+
+COMPONENT ha
+	PORT(A : IN STD_LOGIC;
+		 B : IN STD_LOGIC;
+		 Sum : OUT STD_LOGIC;
+		 Cout : OUT STD_LOGIC
+	);
+END COMPONENT;
+
+COMPONENT fa
+	PORT(A : IN STD_LOGIC;
+		 B : IN STD_LOGIC;
+		 C_in : IN STD_LOGIC;
+		 C_out : OUT STD_LOGIC;
+		 Sum : OUT STD_LOGIC
+	);
+END COMPONENT;
+
+COMPONENT mux5_1
+	PORT(I_0 : IN STD_LOGIC;
+		 I_1 : IN STD_LOGIC;
+		 I_2 : IN STD_LOGIC;
+		 I_3 : IN STD_LOGIC;
+		 I_4 : IN STD_LOGIC;
+		 S0 : IN STD_LOGIC;
+		 S1 : IN STD_LOGIC;
+		 S2 : IN STD_LOGIC;
+		 Out_0 : OUT STD_LOGIC
+	);
+END COMPONENT;
+
+SIGNAL	SYNTHESIZED_WIRE_0 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_64 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_2 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_4 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_65 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_66 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_67 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_17 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_24 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_32 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_37 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_68 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_42 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_50 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_69 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_55 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_56 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_57 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_59 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_60 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_61 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_62 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_63 :  STD_LOGIC;
+
+
+BEGIN 
+SYNTHESIZED_WIRE_0 <= '1';
+SYNTHESIZED_WIRE_64 <= '0';
+SYNTHESIZED_WIRE_68 <= '1';
+SYNTHESIZED_WIRE_62 <= '1';
+
+
+
+b2v_inst : ha
+PORT MAP(A => MS0,
+		 B => SYNTHESIZED_WIRE_0,
+		 Sum => SYNTHESIZED_WIRE_50,
+		 Cout => SYNTHESIZED_WIRE_2);
+
+
+b2v_inst1 : fa
+PORT MAP(A => MS1,
+		 B => SYNTHESIZED_WIRE_64,
+		 C_in => SYNTHESIZED_WIRE_2,
+		 C_out => SYNTHESIZED_WIRE_37,
+		 Sum => SYNTHESIZED_WIRE_42);
+
+
+b2v_inst11 : fa
+PORT MAP(A => MS4,
+		 B => SYNTHESIZED_WIRE_64,
+		 C_in => SYNTHESIZED_WIRE_4,
+		 Sum => SYNTHESIZED_WIRE_17);
+
+
+
+
+
+b2v_inst16 : mux5_1
+PORT MAP(I_0 => SYNTHESIZED_WIRE_64,
+		 I_1 => SYNTHESIZED_WIRE_64,
+		 I_2 => SYNTHESIZED_WIRE_64,
+		 I_3 => SYNTHESIZED_WIRE_64,
+		 I_4 => SYNTHESIZED_WIRE_64,
+		 S0 => SYNTHESIZED_WIRE_65,
+		 S1 => SYNTHESIZED_WIRE_66,
+		 S2 => SYNTHESIZED_WIRE_67,
+		 Out_0 => P5);
+
+
+b2v_inst17 : mux5_1
+PORT MAP(I_0 => SYNTHESIZED_WIRE_64,
+		 I_1 => SYNTHESIZED_WIRE_64,
+		 I_2 => SYNTHESIZED_WIRE_64,
+		 I_3 => SYNTHESIZED_WIRE_64,
+		 I_4 => SYNTHESIZED_WIRE_17,
+		 S0 => SYNTHESIZED_WIRE_65,
+		 S1 => SYNTHESIZED_WIRE_66,
+		 Out_0 => P4);
+
+
+b2v_inst18 : mux5_1
+PORT MAP(I_0 => SYNTHESIZED_WIRE_64,
+		 I_1 => SYNTHESIZED_WIRE_64,
+		 I_2 => SYNTHESIZED_WIRE_64,
+		 I_3 => SYNTHESIZED_WIRE_64,
+		 I_4 => SYNTHESIZED_WIRE_24,
+		 S0 => SYNTHESIZED_WIRE_65,
+		 S1 => SYNTHESIZED_WIRE_66,
+		 S2 => SYNTHESIZED_WIRE_67,
+		 Out_0 => P3);
+
+
+b2v_inst19 : mux5_1
+PORT MAP(I_0 => SYNTHESIZED_WIRE_64,
+		 I_1 => SYNTHESIZED_WIRE_64,
+		 I_2 => SYNTHESIZED_WIRE_64,
+		 I_3 => SYNTHESIZED_WIRE_64,
+		 I_4 => SYNTHESIZED_WIRE_32,
+		 S0 => SYNTHESIZED_WIRE_65,
+		 S1 => SYNTHESIZED_WIRE_66,
+		 S2 => SYNTHESIZED_WIRE_67,
+		 Out_0 => P2);
+
+
+b2v_inst2 : fa
+PORT MAP(A => MS2,
+		 B => SYNTHESIZED_WIRE_64,
+		 C_in => SYNTHESIZED_WIRE_37,
+		 C_out => SYNTHESIZED_WIRE_63,
+		 Sum => SYNTHESIZED_WIRE_32);
+
+
+b2v_inst20 : mux5_1
+PORT MAP(I_0 => SYNTHESIZED_WIRE_64,
+		 I_1 => SYNTHESIZED_WIRE_64,
+		 I_2 => SYNTHESIZED_WIRE_68,
+		 I_3 => SYNTHESIZED_WIRE_68,
+		 I_4 => SYNTHESIZED_WIRE_42,
+		 S0 => SYNTHESIZED_WIRE_65,
+		 S1 => SYNTHESIZED_WIRE_66,
+		 S2 => SYNTHESIZED_WIRE_67,
+		 Out_0 => P1);
+
+
+b2v_inst21 : mux5_1
+PORT MAP(I_0 => SYNTHESIZED_WIRE_64,
+		 I_1 => SYNTHESIZED_WIRE_68,
+		 I_2 => SYNTHESIZED_WIRE_68,
+		 I_3 => SYNTHESIZED_WIRE_68,
+		 I_4 => SYNTHESIZED_WIRE_50,
+		 S0 => SYNTHESIZED_WIRE_65,
+		 S1 => SYNTHESIZED_WIRE_66,
+		 S2 => SYNTHESIZED_WIRE_67,
+		 Out_0 => P0);
+
+
+
+SYNTHESIZED_WIRE_59 <= NOT(MSH_LSsumbit_1);
+
+
+
+SYNTHESIZED_WIRE_55 <= NOT(MSH_LSsumbit_2);
+
+
+
+SYNTHESIZED_WIRE_69 <= NOT(MSH_LSsumbit_3);
+
+
+
+SYNTHESIZED_WIRE_67 <= MSH_LSsumbit_2 AND MSH_LSsumbit_3 AND MSH_LSsumbit_1 AND MSH_LSsumbit_0;
+
+
+SYNTHESIZED_WIRE_57 <= SYNTHESIZED_WIRE_69 AND MSH_LSsumbit_1 AND MSH_LSsumbit_0;
+
+
+SYNTHESIZED_WIRE_56 <= SYNTHESIZED_WIRE_55 AND MSH_LSsumbit_1 AND MSH_LSsumbit_0;
+
+
+SYNTHESIZED_WIRE_66 <= SYNTHESIZED_WIRE_56 OR SYNTHESIZED_WIRE_57;
+
+
+SYNTHESIZED_WIRE_60 <= SYNTHESIZED_WIRE_69 AND MSH_LSsumbit_2 AND MSH_LSsumbit_0;
+
+
+SYNTHESIZED_WIRE_61 <= SYNTHESIZED_WIRE_59 AND MSH_LSsumbit_0;
+
+
+SYNTHESIZED_WIRE_65 <= SYNTHESIZED_WIRE_60 OR SYNTHESIZED_WIRE_61;
+
+
+NZ <= NZ_MS AND NZ_LS;
+
+
+b2v_inst9 : fa
+PORT MAP(A => MS3,
+		 B => SYNTHESIZED_WIRE_62,
+		 C_in => SYNTHESIZED_WIRE_63,
+		 C_out => SYNTHESIZED_WIRE_4,
+		 Sum => SYNTHESIZED_WIRE_24);
+
+
+END bdf_type;
